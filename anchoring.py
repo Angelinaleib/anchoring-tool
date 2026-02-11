@@ -19,6 +19,12 @@ st.markdown(
     [data-testid="stSlider"] .rc-slider-handle {
         border-color: #93c5fd !important;
         background-color: #fff !important;
+        border-width: 2px !important;
+    }
+    [data-testid="stSlider"] .rc-slider-handle::after,
+    [data-testid="stSlider"] .rc-slider-handle::before {
+        background-color: #93c5fd !important;
+        border-color: #93c5fd !important;
     }
     [data-testid="stSlider"] .rc-slider-handle:focus,
     [data-testid="stSlider"] .rc-slider-handle:hover,
