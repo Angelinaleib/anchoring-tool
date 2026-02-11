@@ -6,14 +6,21 @@ st.title("Anchoring-Effekt")
 st.markdown(
     """
     <style>
-    [data-testid="stSlider"] .rc-slider-track {
+    [data-testid="stSlider"] .rc-slider-track,
+    [data-testid="stSlider"] .rc-slider-track-1 {
         background-color: #93c5fd !important;
+    }
+    [data-testid="stSlider"] .rc-slider-rail,
+    [data-testid="stSlider"] .rc-slider-rail-1 {
+        background-color: #dbeafe !important;
     }
     [data-testid="stSlider"] .rc-slider-handle {
         border-color: #93c5fd !important;
+        background-color: #fff !important;
     }
     [data-testid="stSlider"] .rc-slider-handle:focus,
-    [data-testid="stSlider"] .rc-slider-handle:hover {
+    [data-testid="stSlider"] .rc-slider-handle:hover,
+    [data-testid="stSlider"] .rc-slider-handle-dragging {
         box-shadow: 0 0 0 0.3rem rgba(59, 130, 246, 0.5);
     }
     </style>
