@@ -2,6 +2,7 @@ import streamlit as st
 
 st.title("Anchoring-Effekt")
 
+# Inject styling so the slider visually matches Tailwind's blue-300 palette.
 st.markdown(
     """
     <style>

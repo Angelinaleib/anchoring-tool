@@ -8,7 +8,7 @@ st.write(
     "can influence your estimation."
 )
 
-# Question config (easy to extend with more examples later)
+# Question bank: each entry pairs a leading question with a follow-up prompt and slider settings.
 QUESTIONS = [
     {
         "page1": "Do you think people typically trust AI recommendations more or less than 60% of the time when they lack strong domain knowledge?",
@@ -52,6 +52,7 @@ def format_value(value: int, unit: str) -> str:
     return f"{value} {unit}".strip()
 
 
+# Initialize session state so navigation, answers, and submissions persist across reruns.
 if "step" not in st.session_state:
     st.session_state.step = 1
 if "answer" not in st.session_state:
@@ -83,6 +84,7 @@ if st.session_state.step == 2:
     st.caption(
         f"Scale: {format_value(question['min'], question['unit'])} – {format_value(question['max'], question['unit'])}"
     )
+    # Slider lets the participant place their estimate along the configured range.
     answer = st.slider(
         "Select your estimate",
         min_value=question["min"],
@@ -92,12 +94,14 @@ if st.session_state.step == 2:
         format="%d",
     )
 
+    # Display the min/max bounds beside the slider for orientation.
     col_left, col_right = st.columns(2)
     with col_left:
         st.write(f"Min: {format_value(question['min'], question['unit'])}")
     with col_right:
         st.write(f"Max: {format_value(question['max'], question['unit'])}")
 
+    # Store the chosen value and show feedback once the user submits.
     if st.button("Submit Answer"):
         st.session_state.answer = answer
         st.session_state.submitted = True
@@ -111,11 +115,13 @@ if st.session_state.step == 2:
         st.write(
             f"Example solution (for demo): **{format_value(question['example_solution'], question['unit'])}**"
         )
+        # Explanation reinforcing why the demo exists.
         st.write(
             "People who see higher anchors tend to give higher estimates, "
             "even when the anchor is random."
         )
 
+    # Reset the experiment to rerun with a new random question.
     if st.button("Start Over"):
         st.session_state.step = 1
         st.session_state.answer = None
