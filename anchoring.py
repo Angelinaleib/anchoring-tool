@@ -2,6 +2,24 @@ import streamlit as st
 
 st.title("Anchoring-Effekt")
 
+st.markdown(
+    """
+    <style>
+    [data-testid="stSlider"] .rc-slider-track {
+        background-color: #93c5fd !important;
+    }
+    [data-testid="stSlider"] .rc-slider-handle {
+        border-color: #93c5fd !important;
+    }
+    [data-testid="stSlider"] .rc-slider-handle:focus,
+    [data-testid="stSlider"] .rc-slider-handle:hover {
+        box-shadow: 0 0 0 0.3rem rgba(59, 130, 246, 0.5);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 if "step" not in st.session_state:
     st.session_state.step = 1
 if "question_index" not in st.session_state:
