@@ -7,19 +7,22 @@ st.markdown(
     """
     <style>
     [data-testid="stSlider"] .rc-slider-track,
-    [data-testid="stSlider"] .rc-slider-track-1 {
+    [data-testid="stSlider"] .rc-slider-track-1,
+    [data-testid="stSlider"] .rc-slider-track-0,
+    [data-testid="stSlider"] .rc-slider-track-0::after {
         background-color: #93c5fd !important;
         background-image: none !important;
     }
     [data-testid="stSlider"] .rc-slider-rail,
     [data-testid="stSlider"] .rc-slider-rail-1 {
-        background-color: #dbeafe !important;
+        background-color: #93c5fd !important;
         background-image: none !important;
     }
     [data-testid="stSlider"] .rc-slider-handle {
-        border-color: #93c5fd !important;
-        background-color: #fff !important;
+        border-color: #fff !important;
+        background-color: #93c5fd !important;
         border-width: 2px !important;
+        box-shadow: none !important;
     }
     [data-testid="stSlider"] .rc-slider-handle::after,
     [data-testid="stSlider"] .rc-slider-handle::before {
